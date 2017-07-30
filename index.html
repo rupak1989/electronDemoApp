@@ -2,9 +2,14 @@
 <head></head>
 
 <body>
-<h3>
-thia is just html test
-npm install --save-dev electron-prebuilt
-</h3>
+<h3>Desktop App</h3>
+<div id="output"></div>
 </body>
+<script type="text/javascript">
+	console.log(process);
+	let output = '<h2>App Version Data</h2><ul><li>Node:'+process.versions.node+'</li><li>Chrome:'+process.versions.chrome+'</li><li>Electron:'+process.versions.electron+'</li></ul><h2>System Specs</h2><ul><li>Archtect:'+process.arch+'</li></ul><h2>System Memory</h2><ul><li>Total:'+process.getSystemMemoryInfo().total+'</li><li>Free:'+process.getSystemMemoryInfo().free+'</li><li>Swap Total:'+process.getSystemMemoryInfo().swapTotal+'</li><li>Swap free:'+process.getSystemMemoryInfo().swapFree+'</li></ul><h2>Computer Info</h2><ul><li>Name:'+process.env.USER+'</li></ul>';
+
+document.getElementById('output').innerHTML = output;
+
+</script>
 </html>
