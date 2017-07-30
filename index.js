@@ -2,9 +2,12 @@
 
 const electron = require('electron');
 const path = require('path');
-
+const url = require('url');
 // Module to control application life.
 const app = electron.app;
+
+
+
 const BrowserWindow = electron.BrowserWindow;
 
 
@@ -22,5 +25,14 @@ app.on('ready', function(){
 	});
 
 	//mainWindow.loadURL('file://' +__dirname+'/index.html');
-	mainWindow.loadURL('https://github.com')
+	//open any url
+	//mainWindow.loadURL('https://github.com')
+	mainWindow.loadURL(url.format({
+		pathname: path.join(__dirname, '/index.html'),
+		protocol: 'file',
+		slashes: true
+	}));
+
+	//open devtools
+	mainWindow.webContents.openDevTools();
 });
